@@ -12,14 +12,19 @@ namespace APP1.Controllers
 
         public HomeController(ApplicationContext context)
         {
-            db = context;   
+            db = context; 
         }
 
         public async Task<IActionResult> GetPackages()
         {
             if (db.Database.CanConnect())
             {
-                db.Packages = 
+                //if (RegNumber.ToString().Length != 10)
+                  //  return BadRequest();
+                //else
+                {
+                    //Model = await db.Packages.FirstOrDefaultAsync(m => m.RegNumber == RegNumber);
+                }
                 return View(await db.Packages.ToListAsync());
             }
             else
