@@ -15,29 +15,30 @@ namespace APP1.Controllers
             db = context; 
         }
 
-        public async Task<IActionResult> GetPackages()
+        public IActionResult Index(int? regNumber)
         {
-            if (db.Database.CanConnect())
+            if (regNumber != null)
             {
-                //if (RegNumber.ToString().Length != 10)
-                  //  return BadRequest();
-                //else
+                var p = db.Packages.FirstOrDefault(p => p.RegNumber == regNumber);
+                if (p != null)
+                    return View(p);
+                else
                 {
-                    //Model = await db.Packages.FirstOrDefaultAsync(m => m.RegNumber == RegNumber);
+                    ViewBag.Message = "Не найдено";
                 }
-                return View(await db.Packages.ToListAsync());
             }
-            else
-            {
-                return View();
-            }
-        }
-
-        public IActionResult Index()
-        {
             return View();
         }
 
+        public IActionResult GetP(int? regNumber)
+        {
+            if (regNumber != null)
+            {
+                return Content(db.Packages.FirstOrDefault(p => p.RegNumber == regNumber).TransferDate.ToString());
+            }
+            else
+                return Content("Не найдено");
+        }
 
         public IActionResult Privacy()
         {

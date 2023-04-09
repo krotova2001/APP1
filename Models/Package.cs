@@ -8,7 +8,7 @@ namespace APP1.Models
         public string? Number { get; set; }
         public int? RegNumber { get; set; }
         public int? Status { get; set; }
-        public DateTime CreateDate_local { get; set; }
+        //public DateTime CreateDate { get; set; }
         public DateTime TransferDate { get; set; }
         public DateTime RegDate { get; set; }
         public int? RegistrationNumber { get; set; }
@@ -20,11 +20,12 @@ namespace APP1.Models
         public DbSet<Package> Packages { get; set; } = null!;
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options) { }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Package>().ToTable("Package");
         }
+        
     }
 
     
