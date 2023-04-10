@@ -19,7 +19,7 @@ namespace APP1.Controllers
         {
             if (regNumber.HasValue)
             {
-                if (regNumber.Value.ToString().Length >= 10)
+                //if (regNumber.Value.ToString().Length >= 10)
                 {
                     var p = db.Packages.FirstOrDefault(p => p.RegNumber == regNumber);
                     if (p != null)
@@ -29,10 +29,12 @@ namespace APP1.Controllers
                         ViewBag.Message = "Не найдено";
                     }
                 }
+                /*
                 else
                 {
                     ViewBag.Message = "Введите минимум 10 цифр";
                 }
+                */
             }
             return View();
         }
