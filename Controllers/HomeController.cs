@@ -17,31 +17,23 @@ namespace APP1.Controllers
 
         public IActionResult Index(int? regNumber)
         {
-            if (regNumber != null)
+            if (regNumber.HasValue)
             {
-                var p = db.Packages.FirstOrDefault(p => p.RegNumber == regNumber);
-                if (p != null)
-                    return View(p);
+                if (regNumber.Value.ToString().Length >= 10)
+                {
+                    var p = db.Packages.FirstOrDefault(p => p.RegNumber == regNumber);
+                    if (p != null)
+                        return View(p);
+                    else
+                    {
+                        ViewBag.Message = "Не найдено";
+                    }
+                }
                 else
                 {
-                    ViewBag.Message = "Не найдено";
+                    ViewBag.Message = "Введите минимум 10 цифр";
                 }
             }
-            return View();
-        }
-
-        public IActionResult GetP(int? regNumber)
-        {
-            if (regNumber != null)
-            {
-                return Content(db.Packages.FirstOrDefault(p => p.RegNumber == regNumber).TransferDate.ToString());
-            }
-            else
-                return Content("Не найдено");
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 
