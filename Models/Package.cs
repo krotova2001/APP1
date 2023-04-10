@@ -6,7 +6,7 @@ namespace APP1.Models
     {
         public Guid Id { get; set; }
         public string? Number { get; set; }
-        public int? RegNumber { get; set; }
+        public string? RegNumber { get; set; }
         public int? Status { get; set; }
         //public DateTime CreateDate { get; set; }
         public DateTime TransferDate { get; set; }
