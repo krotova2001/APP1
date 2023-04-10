@@ -9,10 +9,10 @@ namespace APP1.Models
         public string? RegNumber { get; set; }
         public int? Status { get; set; }
         //public DateTime CreateDate { get; set; }
-        public DateTime TransferDate { get; set; }
-        public DateTime RegDate { get; set; }
+        public DateTime? TransferDate { get; set; }
+        public DateTime? RegDate { get; set; }
         public int? RegistrationNumber { get; set; }
-        public DateTime RegistrationDate { get; set; }
+        public DateTime? RegistrationDate { get; set; }
     }
 
     public class ApplicationContext : DbContext
