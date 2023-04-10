@@ -15,11 +15,11 @@ namespace APP1.Controllers
             db = context; 
         }
 
-        public IActionResult Index(int? regNumber)
+        public IActionResult Index(string? regNumber)
         {
-            if (regNumber.HasValue)
+            if (regNumber!=null)
             {
-                //if (regNumber.Value.ToString().Length >= 10)
+                //if (regNumber.Length >= 10)
                 {
                     var p = db.Packages.FirstOrDefault(p => p.RegNumber == regNumber);
                     if (p != null)
