@@ -4,7 +4,7 @@ project:
   nullable: false
 database:
   provider: SqlServer
-  connectionString: Server=BATYA\\SQLEXPRESS; Database=kps_rtz; Trusted_Connection=True; TrustServerCertificate=True;
+  connectionString: 'Data Source=BATYA\\SQLEXPRESS; Initial Catalog=kps_rtz; Integrated Security=True; TrustServerCertificate=True;'
   tableNaming: Singular
   tables: []
   schemas: []
