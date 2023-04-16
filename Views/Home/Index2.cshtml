@@ -9,7 +9,7 @@
    <div class="d-flex flex-row justify-content-center">
      <div style="margin: 1rem;">
         <form asp-action="Index2">
-        <input class="form-control" type="text">
+        <input class="form-control" type="text" name="regNumber">
         <input type="submit" value="Search" class="btn btn-primary"  style="margin: 1rem;"></input>
         </form>
       </div>
@@ -20,7 +20,7 @@
    <p></p>
     
 </div>
-
+<div class="container-fluid">
     @if(Model!=null)
     {
         <table class="table">
@@ -35,12 +35,13 @@
                 <tr>
                      @for (var i = 0; i < Model.Columns.Count; i++)
                      {
-                         <td>row[i];</td>
+                         <td>@row[i];</td>
                      }
                 </tr>
             }
         </table>
     }
+</div>
 
  
 </body>
